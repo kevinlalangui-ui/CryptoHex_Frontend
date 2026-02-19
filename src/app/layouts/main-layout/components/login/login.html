@@ -1,0 +1,30 @@
+<div id="container">
+  <div class="content" >
+    <span class="close-btn">&times;</span>
+    <div class="">
+      <h2 class="text-white">Iniciar sesión</h2>
+    </div>
+    <div>
+      <p class="gris">¿No tienes una cuenta? <span routerLink="/register" id="registro">Registrarse</span></p>
+    </div>
+    <form [formGroup]="formLogin" action="" class=""
+     (ngSubmit)="iniciarSesion()">
+      <div class="label-email">
+        <label for="email">Correo electrónico</label>
+      </div>
+      <div class="casilla">
+        <input formControlName="email" type="email" id="email" placeholder="email@sitio.com" class="form-control">
+      </div>
+      <div class="contenedor-password">
+        <div class="label-password">
+          <label for="password">Contraseña</label>
+        </div>
+        <div class="password-ojo">
+          <input formControlName="password" type="password" id="password" placeholder="*******" class="form-control">
+          <i class="bi bi-eye text-white"></i>
+        </div>
+      </div>
+      <button class="btn-primary" type="submit" [disabled]="formLogin.invalid">Continuar</button>
+    </form>
+  </div>
+</div>

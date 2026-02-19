@@ -1,0 +1,112 @@
+<div id="fondo">
+  <div class="container-fluid">
+    <div class="container pt-4">
+      <div class=" pt-3 d-flex align-items-center justify-content-center">
+        <img src="/img/logo_tienda_2.png" alt="">
+        <h2 class="text-light fw-bold">CRYPTOHEX</h2>
+      </div>
+      <div class="text-center pt-2">
+        <h4 class="text-light">REGISTRO</h4>
+      </div>
+      <div id="formulario" class="container-fluid pt-3">
+        <form [formGroup]="registerForm"
+              (ngSubmit)="registrarme()">
+          <div class="pt-4">
+            <input
+              formControlName="nombre" type="text" id="nombre" class="form-control ps-2"
+              placeholder="Nombre de usuario">
+          </div>
+          <div class="pt-4">
+            <input
+              formControlName="email" type="email" id="email" class="casilla form-control"
+              [ngClass]="[
+              registerForm.get('email')?.touched && registerForm.get('email')?.errors ? 'is-invalid': '',
+              registerForm.get('email')?.touched && !registerForm.get('email')?.errors ? 'is-valid': '',
+              ]" placeholder="Correo electrónico">
+            @if (registerForm.get("email")?.touched) {
+              @if (registerForm.get("email")?.errors?.['required']) {
+                <div class="form-text text-end text-danger">El campo es obligatorio</div>
+              }
+              @if (registerForm.get("email")?.errors?.['email']) {
+                <div class="form-text text-end text-danger">Correo no válido</div>
+              }
+              @if (registerForm.get("email")?.errors?.['extension']) {
+                <div class="form-text text-end text-danger">Solo aceptamos gmail y hotmail</div>
+              }
+              @if (registerForm.get("email")?.errors?.['customEmail']) {
+                <div class="form-text text-end text-danger">Correo no válido</div>
+              }
+            }
+          </div>
+          <div class="pt-4">
+            <input formControlName="password1" type="password" id="password1" class="form-control"
+                   placeholder="Contraseña"
+                   [ngClass]="[
+                    registerForm.get('password1')?.touched && registerForm.get('password1')?.errors ? 'is-invalid': '',
+                    registerForm.get('password1')?.touched && !registerForm.get('password1')?.errors ? 'is-valid': '',
+                    ]"
+            >
+            @if (registerForm.get("password1")?.touched) {
+              @if (registerForm.get("password1")?.errors?.['required']) {
+                <div class="form-text text-end text-danger">El campo es obligatorio</div>
+              }
+              @if (registerForm.get("password1")?.errors?.['customPassword']) {
+                <div class="form-text text-end text-danger">
+                  La contraseña debe de contener al menos una minúscula, una mayúscula y un número
+                </div>
+              }
+              @if (registerForm.get("password1")?.errors?.['minlength']) {
+                <div class="form-text text-end text-danger">Longitud minima de 5 caracteres</div>
+              }
+            }
+          </div>
+          <div class="pt-4">
+            <input
+              formControlName="password2" type="password" id="password2" class="form-control"
+              placeholder="Confirmar contraseña"
+              [ngClass]="[
+                    registerForm.get('password2')?.touched && registerForm.get('password2')?.errors ? 'is-invalid': '',
+                    registerForm.get('password2')?.touched && !registerForm.get('password2')?.errors ? 'is-valid': '',
+                    ]"
+            >
+            @if (registerForm.get("password2")?.touched) {
+              @if (registerForm.get("password2")?.errors?.['required']) {
+                <div class="form-text text-end text-danger">El campo es obligatorio</div>
+              }
+              @if (registerForm.get("password2")?.errors?.['customPassword']) {
+                <div class="form-text text-end text-danger">
+                  La contraseña debe de contener al menos una minúscula, una mayúscula y un número
+                </div>
+              }
+              @if (registerForm.get("password2")?.errors?.['minlength']) {
+                <div class="form-text text-end text-danger">Longitud minima de 5 caracteres</div>
+              }
+            }
+          </div>
+          <div class="d-grid pt-5">
+            <button class="boton" type="submit"
+                    [disabled]="registerForm.invalid">
+              Registrarse</button>
+          </div>
+        </form>
+      </div>
+      <div class="text-center pt-5">
+        <p>Al crear tu cuenta estás aceptando los <span   class="text-light">términos</span> y<br>
+          <span  class="text-light">condiciones</span> de CryptoHex</p>
+      </div>
+      <div class="text-center">
+        <p>Haga clic aquí para conocer su <span class="text-light">política de privacidad</span></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="final fixed-bottom text-center">
+    <p class="text-white">
+      CRYPTOHEX Codex · API Docs · support cryptohex.com - CRYPTOHEX CORPORATION - © 2026 - terms of service - privacy
+    </p>
+  </div>
+</div>
+
+
+

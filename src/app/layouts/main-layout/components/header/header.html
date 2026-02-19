@@ -1,0 +1,25 @@
+<section id="contenedor-1" class="d-flex pt-1">
+    <div class="d-flex ms-3 me-5">
+      <img src="/img/logo_tienda_2.png"  id="logo" class="img-fluid " alt="" >
+      <h4 class="text-light pt-4">CRYPTOHEX</h4>
+    </div>
+
+    <div class="d-flex text-center ms-5 me-4">ç
+      <p class="text-light p-4">Staking</p>
+      <p class="text-light p-4">Liquidity Pools</p>
+      <p class="text-light p-4">Airdrops</p>
+    </div>
+    <div class="pt-2 ms-3">
+      <img src="/img/buscador.png" alt="" id="buscador" class="img-fluid">
+    </div>
+    <div class="ms-5">
+      <button id="registro" class="btn btn-black text-light me-3 mt-3"
+      (click)="toggleLogin()"
+
+      >Iniciar sesión</button>
+      <button routerLink="/register" class="btn btn-light text-black mt-3" >Regístrate</button>
+    </div>
+</section>
+@if (openLogin()) {
+  <app-login (fnToggleLoginHeader)="toggleLogin()"></app-login>
+}

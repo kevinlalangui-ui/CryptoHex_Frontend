@@ -1,0 +1,58 @@
+#fondo{
+  background-image: url("/img/fondo_register.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+img{
+  min-width: 50px;
+  max-width: 70px;
+}
+.boton{
+  background-color: #03050D;
+  color: #1C3665;
+  border: solid 2px #1C3665;
+  padding: 5px;
+
+}
+#formulario{
+  width: 70%;
+  //max-width: 800px;
+  max-width:500px;
+  margin:0 auto;
+}
+
+form{
+  width: 100%;
+  max-width: 555px;
+}
+
+p{
+  color: #3E434A;
+  font-weight: bold;
+  font-size: 12px;
+}
+input{
+  background-color: #03050D;
+  padding-top: 10px;
+  padding-bottom:10px;
+  border: 1px solid #292b34;
+
+}
+input::placeholder{
+  color: #3E434A;
+
+}
+
+
+
+//.final{
+//  background-color: #03050D;
+//}
