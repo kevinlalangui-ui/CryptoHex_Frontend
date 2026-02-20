@@ -7,7 +7,6 @@ export const routes: Routes = [
     loadComponent:()=> import("./layouts/main-layout/main-layout").then(c=>c.MainLayout),
     children:[
       {path:'',loadComponent:()=>import("./features/pagina-principal/pagina-principal").then(c=>c.PaginaPrincipal) },
-      // {path:'',loadComponent:()=>import("./features/pagina-principal/pagina-principal").then(c=>c.PaginaPrincipal) },  aqui debemos poner los airdrops, mirar tabmine router outlet
     ]
   },
   //Página sin footer ni header
@@ -17,6 +16,9 @@ export const routes: Routes = [
   },
   {
     path:'airdrops',
-    loadComponent:()=>import("./features/airdrops/airdrops").then(c=>c.Airdrops)
+    loadComponent:()=>import("./layouts/airdrops-layout/airdrops-layout").then(c=>c.AirdropsLayout),
+    children:[
+      {path: '',loadComponent:()=>import("./features/airdrops/airdrops").then(c=>c.Airdrops) },
+    ]
   },
 ];

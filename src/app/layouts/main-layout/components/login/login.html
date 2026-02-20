@@ -1,6 +1,8 @@
 <div id="container">
   <div class="content" >
-    <span class="close-btn">&times;</span>
+    <button type="button" class="btn btn-danger close-btn" (click)="fnToggleLoginHeader.emit()">
+      <i class="bi bi-x-lg text-white"></i>
+    </button>
     <div class="">
       <h2 class="text-white">Iniciar sesión</h2>
     </div>
@@ -21,7 +23,7 @@
         </div>
         <div class="password-ojo">
           <input formControlName="password" type="password" id="password" placeholder="*******" class="form-control">
-          <i class="bi bi-eye text-white"></i>
+<!--          <i class="bi bi-eye text-white"></i>-->
         </div>
       </div>
       <button class="btn-primary" type="submit" [disabled]="formLogin.invalid">Continuar</button>

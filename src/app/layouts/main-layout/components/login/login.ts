@@ -43,7 +43,7 @@ export class Login {
       alert("El campo de email no puede estar vacío")
       return;
     }
-    const datosParaEnviar: DatosDeEnvio = { //al servidor??
+    const datosParaEnviar: DatosDeEnvio = { //datos para el servidor
       email:this.formLogin.value.email,
       password:this.formLogin.value.password,
     }

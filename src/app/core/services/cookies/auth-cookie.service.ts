@@ -10,7 +10,7 @@ export class AuthCookieService {
   ) {
   }
 
-  // crear/modificar la cookie
+  // crear/modificar la cookie, definimos entre otras cosass el tiempo de vida
   set(key: string, value: string, days: number = 5) {
     this.cookieService.set(
       key,
@@ -23,22 +23,18 @@ export class AuthCookieService {
     );
   }
 
-  // obtener cookie
   get(key: string) {
     return this.cookieService.get(key) // Solo retorna el VALUE
   }
 
-  // borrar cookie
   remove(key: string) {
     this.cookieService.delete(key)
   }
 
-  // Comprobar que existe cookie
   exists(key: string): boolean {
     return this.cookieService.check(key)
   }
 
-  //Borrar todas las cookies
   removeAll(): void {
     this.cookieService.deleteAll();
   }

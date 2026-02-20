@@ -40,10 +40,12 @@ p{
   font-size: 12px;
 }
 input{
-  background-color: #03050D;
+  background-color: rgba(3, 5, 13, 0.01);
   padding-top: 10px;
   padding-bottom:10px;
   border: 1px solid #292b34;
+  color: #b3b3b7;
+
 
 }
 input::placeholder{
@@ -52,7 +54,11 @@ input::placeholder{
 }
 
 
-
+input:focus {
+  background-color: rgba(3, 5, 13, 0.01);
+  color: #b3b3b7;
+  border:none;
+}
 //.final{
 //  background-color: #03050D;
 //}
