@@ -1,12 +1,41 @@
-#contenedor-1{
+.fondo{
   background-color: #03050D;
+  width: 100%;
 }
 #logo{
-  width: 90px;
+  max-width: 90px;
+  min-width: 30px;
 }
 #registro{
   background-color: #242830;
 }
+.caja-buscador{
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #24272f;
+  background-color: #131721;
+  border-radius: 5px;
+  align-items: center;
+}
+
+input{
+  background-color: #131721;
+  border:none;
+  color: #ebebeb;
+}
+#mini-buscador{
+  width: 100%;
+  min-width: 250px;
+}
+input:focus{
+  color: #ebebeb;
+  outline: none;
+}
+input::placeholder{
+  color: #7e8085;
+}
+
 .airdrops{
   cursor:pointer;
 }
