@@ -1,0 +1,75 @@
+<section>
+  <div class="content">
+    <div class="primera-columna justify-content-start">
+      <i class="icono-perfil bi bi-person-circle text-white"></i>
+      <span class="text-light">{{ nombreDeUsuario() }}</span>
+      <span (click)="logout()" class="logout"> Cerrar sesión </span>
+    </div>
+    <div class="2-columna align-items-start justify-content-center mt-3">
+      <h3 class="titulo">DATOS PERSONALES</h3>
+      <div class="datos-personales d-block">
+        <h5 class="subtitulo">Alias</h5>
+        <span class="datos">//nombre</span>
+        <h5 class="subtitulo">Correo</h5>
+        <span class="datos">//email</span>
+      </div>
+      <h3 class="titulo">TUS TWEETS</h3>
+<!--      //abajo rev-->
+      <div class="lista-tweets d-flex flex-column gap-3">
+        <div class="contenedor-tweet">
+          <p class="tweet-titulo">LINK Sees 4x Volume Spike on Binance, Bybit Funding Rate Plunges Negative</p>
+          <p class="letra-token"><span class="etiqueta-token">Tokens:</span> LINK</p>
+          <div class=>
+            <span class="tweet-tiempo">8 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="contenedor-tweet">
+          <p  class="tweet-titulo">ETH Long-Dated Futures Discounted, Options Mixed as Derivatives Signal Caution</p>
+          <p class="letra-token"><span class="etiqueta-token">Tokens:</span> ETH</p>
+          <div class="">
+            <span class="tweet-tiempo">10 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="contenedor-tweet">
+          <div class="contenedor-etiquetas d-flex gap-2 ">
+            <span class="rojo">Bullish</span>
+            <span class="blanco">Sentiment</span>
+          </div>
+
+          <p class="tweet-titulo mt-2">ONDO Trading Volume Surges 667% on Binance, Positive Sentiment Spikes</p>
+          <p class="letra-token"><span class="etiqueta-token">Tokens:</span> ONDO</p>
+          <div class="">
+            <span class="tweet-tiempo">50 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="contenedor-tweet">
+          <div class="contenedor-etiquetas d-flex gap-2">
+            <span class="verde">Bullish</span>
+          </div>
+          <p class="tweet-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
+          <p class="letra-token"><span class="etiqueta-token">Tokens:</span> ALGO</p>
+          <div class="">
+            <span class="tweet-tiempo">1 hour ago</span>
+          </div>
+        </div>
+        <div class="contenedor-tweet">
+          <div class="contenedor-etiquetas d-flex gap-2">
+            <span class="verde">Bullish</span>
+          </div>
+          <p class="tweet-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
+          <p class="letra-token"><span class="etiqueta-token">Tokens:</span> ALGO</p>
+          <div class="">
+            <span class="tweet-tiempo">1 hour ago</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+

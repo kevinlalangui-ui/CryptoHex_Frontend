@@ -58,6 +58,7 @@ export class Login {
           rol: response.data.role,
         }
         this.sessionStorageService.set("cryptoHex_datos", datos);
+        this.fnToggleLoginHeader.emit()
       },
       error: (error) => {
         console.log(error);

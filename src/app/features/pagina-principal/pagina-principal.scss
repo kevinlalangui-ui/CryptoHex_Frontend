@@ -1,4 +1,11 @@
 
+.fondo{
+  background-color: #03050D;
+  width: 100%;
+}
+.content{
+  width: 95%;
+}
 #barra-busqueda{
   box-shadow:
     0 0 15px rgba(248, 248, 248, 0.25),
@@ -10,8 +17,7 @@ input{
   color: white;
   border: none;
   outline: none;
-  min-width: 100%;//preguntar camilo porque siendo mayor que el max hace que
-                  //
+  min-width: 100%;
   max-width: 70%;
  }
 input:focus{
@@ -26,14 +32,7 @@ input:focus{
   font-size: 12px;
   border-radius: 4px;
 }
-.rojo{
-  background-color: #3c2a33;
-  color: #C24741;
-  font-size: 12px;
-  padding: 10px 30px;
-  position: relative;
-  margin-right: 20px;
-}
+
 .noticias-footer{
   color: #3E434A;
 }
@@ -42,6 +41,61 @@ img{
   margin-left: 5px;
   margin-right: 5px;
 }
-.caja-noticias{
-  gap: 200px;
+
+
+////////////////estilo de tweets
+.lista-tweets{
+  margin-top: 80px ;
+  overflow-x:auto;
+  width: 100%;
 }
+.contenedor-tweet{
+  background-color: #14161f;
+  border:1px solid #23252c;
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+}
+.tweet-titulo{
+  color:white;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family:monospace;
+}
+.letra-token{
+  color:#7e8186;
+  font-size: 13px;
+  margin-bottom:10px;
+}
+.etiqueta-token{
+  color:#7e8186;
+}
+.tweet-tiempo{
+  color:#7e8186;
+  font-size: 12px;
+}
+
+
+.contenedor-etiquetas{
+  .verde{
+    font-size: 12px;
+    color:#55A66C;
+    background-color: #1f302c;
+    padding: 1px 4px 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  .rojo{
+    font-size: 12px;
+    color: #C24741;
+    background-color: #3c2a33;
+    padding: 1px 4px 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  .blanco{
+    color:white;
+    background-color: #22242c;
+  }
+}
+

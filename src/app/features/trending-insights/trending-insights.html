@@ -1,10 +1,89 @@
 <div class="fondo">
-  <div>
-    <h4>Foro de Noticias</h4>
+  <div class="cabezera">
+    <div class="d-flex align-items-center">
+      <img src="/img/logo_tienda_2.png" alt="" routerLink="/">
+    </div>
+
+    <div class="header-search caja-buscador d-flex flex-row gap-2 align-items-center flex-nowrap">
+      <i class="bi bi-search" style="color: #7d7f84"></i>
+      <input type="text" id="mini-buscador" placeholder="Search for tokens, layouts....">
+      <span class="atajo">/</span>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <i class="bi bi-list text-white fs-4"></i>
+    </div>
   </div>
-  <div class="d-flex">
-    <button>
-      <i class="bi bi-plus-circle"></i>
-    </button>
+  <div class="cuerpo container d-flex flex-column gap-3 bg-black pt-5 ps-5">
+    <h2 class="fw-bold text-white">TWEETS</h2>
+    <div class="caja-buscador d-flex flex-row gap-2 align-items-center flex-nowrap ">
+      <i class="bi bi-search" style="color: #7d7f84"></i>
+      <input type="text" id="mini-buscador" placeholder="Search for tokens, layouts....">
+    </div>
+    <div  class="lapiz">
+      <div class="lista-tweets d-flex flex-column gap-3">
+
+        <div class="insight-card">
+          <p class="insight-titulo">LINK Sees 4x Volume Spike on Binance, Bybit Funding Rate Plunges Negative</p>
+          <p class="insight-token"><span class="label-token">Tokens:</span> LINK</p>
+          <div class="insight-footer">
+            <span class="insight-meta">8 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <p class="insight-titulo">ETH Long-Dated Futures Discounted, Options Mixed as Derivatives Signal Caution</p>
+          <p class="insight-token"><span class="label-token">Tokens:</span> ETH</p>
+          <div class="insight-footer">
+            <span class="insight-meta">10 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="contenedor-etiquetas d-flex gap-2 ">
+            <span class="">Bullish</span>
+            <span class="blanco">Sentiment</span>
+          </div>
+
+          <p class="insight-titulo mt-2">ONDO Trading Volume Surges 667% on Binance, Positive Sentiment Spikes</p>
+          <p class="insight-token"><span class="label-token">Tokens:</span> ONDO</p>
+          <div class="insight-footer">
+            <span class="insight-meta">50 minutes ago</span>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="contenedor-etiquetas d-flex gap-2">
+            <span class="">Bullish</span>
+          </div>
+          <p class="insight-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
+          <p class="insight-token"><span class="label-token">Tokens:</span> ALGO</p>
+          <div class="insight-footer">
+            <span class="insight-meta">1 hour ago</span>
+          </div>
+        </div>
+        <div class="insight-card">
+          <div class="contenedor-etiquetas d-flex gap-2">
+            <span class="">Bullish</span>
+          </div>
+          <p class="insight-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
+          <p class="insight-token"><span class="label-token">Tokens:</span> ALGO</p>
+          <div class="insight-footer">
+            <span class="insight-meta">1 hour ago</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-lapiz text-light " (click)="toggleTweet()">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+      </div>
+    </div>
   </div>
+
+
 </div>
+
+@if(openTweet()){
+  <app-add-tweet (fnToggleTweet)="toggleTweet()"></app-add-tweet>
+}

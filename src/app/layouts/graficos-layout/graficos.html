@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">Cryptomercado</h1>
+    <span class="dashboard-subtitle">Datos en tiempo real</span>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <!-- Fila 1: Heatmap grande + Oscilador -->
+    <div class="card card--large">
+      <div class="card__header">
+        <span class="card__title">Crypto Heatmap</span>
+      </div>
+      <div class="card__body">
+        <app-heatmap></app-heatmap>
+      </div>
+    </div>
+
+    <div class="card card--medium">
+      <div class="card__header">
+        <span class="card__title">Análisis Técnico</span>
+      </div>
+      <div class="card__body">
+        <app-oscilador></app-oscilador>
+      </div>
+    </div>
+
+    <!-- Fila 2: Overview grande + Stock Market -->
+    <div class="card card--large">
+      <div class="card__header">
+        <span class="card__title">Crypto Screener</span>
+      </div>
+      <div class="card__body">
+        <app-overview></app-overview>
+      </div>
+    </div>
+
+    <div class="card card--medium">
+      <div class="card__header">
+        <span class="card__title">Stock Market</span>
+      </div>
+      <div class="card__body">
+        <app-stock-market></app-stock-market>
+      </div>
+    </div>
+
+  </div>
+</div>

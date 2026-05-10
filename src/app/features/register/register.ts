@@ -21,6 +21,7 @@ export class Register  {
     constructor(
       private formBuilder: FormBuilder,
       private authService: AuthService,
+      private router: Router,
     ) {
         this.registerForm = this.formBuilder.group({
           "nombre": ["", Validators.required],
@@ -37,6 +38,8 @@ export class Register  {
       this.authService.registro(this.registerForm.value).subscribe({
         next: (data )=> {
           console.log(data);
+          this.router.navigate(['/']);
+
         },
         error:(err) => {
           console.log(err)

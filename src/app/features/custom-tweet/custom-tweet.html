@@ -1,0 +1,36 @@
+  <div class="d-flex fondo align-items-center justify-content-center">
+  <div class="content">
+    <form [formGroup]="formTweet"
+     (ngSubmit)="enviarTweet()">
+      <div class="caja">
+        <div class="d-flex align-items-start gap-1">
+          <input formControlName="tag1" type="text" placeholder="etiqueta 1">
+          <input formControlName="tag2" type="text" placeholder="etiqueta 2 ">
+          <input formControlName="tag3" type="text" placeholder="etiqueta 3">
+        </div>
+        <div>
+        <textarea formControlName="contenido">
+        </textarea>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-1 align-items-center">
+            <span class="gris">Token:</span>
+            <select formControlName="token" id="token">
+              <option value="btc">BTC</option>
+              <option value="aster">ASTR</option>
+              <option value="eth">ETH</option>
+              <option value="sol">SOL</option>
+            </select>
+          </div>
+          <div class="">
+            <span class="gris">hours ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button type="submit" class="w-100" [disabled]="formTweet.invalid" >Publicar</button>
+      </div>
+    </form>
+
+  </div>
+</div>

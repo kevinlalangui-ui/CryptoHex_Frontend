@@ -1,8 +1,9 @@
-#fondo{
+#fondo {
   background-image: url("/img/fondo_register.png");
-  background-size: cover;
+  background-size: 100% 55%;
   background-repeat: no-repeat;
-  background-position:center;
+  background-position: top ;
+  background-color: #03050D;
   min-height: 100vh;
   width: 100%;
   height: 100%;
@@ -10,55 +11,104 @@
   padding: 0;
 }
 
-
-img{
+img {
   min-width: 50px;
   max-width: 70px;
 }
-.boton{
-  background-color: #03050D;
-  color: #1C3665;
-  border: solid 2px #1C3665;
-  padding: 5px;
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-#formulario{
+
+/* Separador */
+.separador {
+  width: 100%;
+  max-width: 500px;
+  margin: 1.2rem auto 0.5rem;
+  height: 1px;
+  background-color: #36373f;
+}
+
+
+/* Formulario */
+#formulario {
   width: 70%;
-  //max-width: 800px;
-  max-width:500px;
-  margin:0 auto;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-form{
+form {
   width: 100%;
   max-width: 555px;
 }
 
-p{
-  color: #3E434A;
-  font-weight: bold;
-  font-size: 12px;
+
+.campo {
+  padding-top: 1rem;
 }
-input{
+
+.campo-label {
+  display: block;
+  font-size: 12px;
+  color: #a6a8ac;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+
+input {
   background-color: rgba(3, 5, 13, 0.01);
   padding-top: 10px;
-  padding-bottom:10px;
-  border: 1px solid #292b34;
+  padding-bottom: 10px;
+  border: 1px solid #252730;
   color: #b3b3b7;
-
-
-}
-input::placeholder{
-  color: #3E434A;
-
 }
 
+input::placeholder {
+  color: #4f4f57;
+}
 
 input:focus {
   background-color: rgba(3, 5, 13, 0.01);
   color: #b3b3b7;
-  border:none;
+  border: none;
+  box-shadow: none;
 }
-//.final{
-//  background-color: #03050D;
-//}
+
+/* Botón */
+.boton {
+  background-color: #0c0f1e;
+  color: #203f76;
+  border: solid 2px #203f76;
+
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+/* Textos */
+p {
+  color: #606168;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Footer */
+.final {
+
+  padding: 8px 0;
+}
+
+.final p {
+  color: #606168;
+  font-size: 11px;
+  font-weight: normal;
+}

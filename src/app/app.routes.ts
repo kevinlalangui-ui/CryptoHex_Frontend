@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import {authGuard} from "./core/guards/auth/auth-guard";
 
 export const routes: Routes = [
   //Página con footer y header
@@ -21,4 +22,27 @@ export const routes: Routes = [
       {path: '',loadComponent:()=>import("./features/airdrops/airdrops").then(c=>c.Airdrops) },
     ]
   },
+  {
+    path:'custom-tweet',
+    loadComponent:()=>import("./features/custom-tweet/custom-tweet").then(c=>c.CustomTweet),
+  },
+  {
+    path:'overview',
+    loadComponent:()=>import("./layouts/graficos-layout/graficos").then(c=>c.Graficos) ,
+  },
+  {
+    path:'profile',
+    loadComponent:()=>import("./features/profile/profile").then(c=>c.Profile),
+    // canActivate: [authGuard],
+  },
+  {
+    path:'tweets',
+    loadComponent:()=>import("./features/trending-insights/trending-insights").then(c=>c.TrendingInsights) ,
+    // canActivate: [authGuard],// la guard
+  },
+  {path:'**',redirectTo:'page-not-found',pathMatch:'full'},
+  {
+    path:'page-not-found',
+    loadComponent: () => import("./features/not-found/not-found-404/not-found-404").then(c => c.NotFound404)
+  }
 ];

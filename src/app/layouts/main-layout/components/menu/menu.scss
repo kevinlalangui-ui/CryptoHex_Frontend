@@ -1,0 +1,39 @@
+section{//
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .content{
+    padding: 20px 10px 20px 10px ;
+    max-width: 250px;
+    width: 100%;
+    height: auto;       }
+}
+.negro{
+  background-color: black;
+
+}
+img {
+  max-width: 30px;
+  width: 100%;
+  height: auto;
+}
+
+p:hover{
+  opacity: 0.7;
+}
+p,i{
+  cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,99 @@
+section{//re
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  .content{
+    margin-top: 100px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #0f1118;
+    padding-right: 20px;
+
+  }
+}
+.primera-columna{
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+
+  }
+.icono-perfil{
+  font-size: 5rem;
+}
+.titulo{
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.subtitulo{
+  color: #a7a8aa;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.datos{
+  color: #515359;
+  font-family: monospace;
+
+}
+.logout{
+  color: #ff5252;
+  cursor: pointer;
+}
+
+////////////////estilo de tweets
+.lista-tweets{
+  overflow-y:auto;
+  max-height: 480px;
+  max-width: 400px;
+  width: 100%;
+}
+.contenedor-tweet{
+  background-color: #14161f;
+  border:1px solid #23252c;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+.tweet-titulo{
+  color:white;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family:monospace;
+}
+.letra-token{
+  color:#7e8186;
+  font-size: 13px;
+  margin-bottom:10px;
+}
+.etiqueta-token{
+  color:#7e8186;
+}
+.tweet-tiempo{
+  color:#7e8186;
+  font-size: 12px;
+}
+.contenedor-etiquetas{
+  span{
+    font-size: 12px;
+    color:#55A66C;
+    background-color: #1f302c;
+    padding: 1px 4px 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  .blanco{
+    color:white;
+    background-color: #22242c;
+  }
+}
+

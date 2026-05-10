@@ -1,37 +1,57 @@
-<section class="fondo ">
-    <div class="d-flex align-items-center gap-5">
-      <div class="d-flex align-items-center">
-        <div class="p-2">
-          <img src="/img/logo_tienda_2.png"  id="logo" class="img-fluid " alt="" >
-        </div>
-        <div>
-          <h4 class="text-light m-0">CRYPTOHEX</h4>
-        </div>
+<div class="position-relative" id="cryptohex-header">
+  <div class="container-custom">
+
+    <div class="brand-and-mobile">
+
+      <div class="brand-group d-flex align-items-center gap-2">
+        <img src="/img/logo_tienda_2.png" id="logo" class="img-fluid" alt="Logo Cryptohex">
+        <h4 class="brand-title text-light m-0 fw-bold">CRYPTOHEX</h4>
       </div>
 
-      <div class="d-flex align-items-center gap-5">
-        <div><p class="text-light m-0 ">Staking</p></div>
-        <div><p class="text-light m-0">Liquidity Pools</p></div>
-        <div><p class="airdrops text-light m-0" routerLink="/airdrops"> Airdrops</p></div>
-      </div>
+      <div class="mobile-icons gap-3 align-items-center">
+        <i class="bi bi-search fs-5 text-muted mobile-search-icon" ></i>
 
-      <div class="caja-buscador d-flex gap-1">
-        <i class="bi bi-search" style="color: #7d7f84"></i>
-        <div>
-          <input type="text" id="mini-buscador" class="" placeholder="Search for tokens,layouts....">
-        </div>
-      </div>
-      <div class="d-flex gap-4 align-items-center">
-        <button id="registro" class="btn btn-black text-light"
-                (click)="toggleLogin()">Iniciar sesión
-        </button>
-        <button routerLink="/register" class="btn btn-light text-black" >Regístrate</button>
+        <i class="bi bi-list fs-3 text-light mobile-menu-icon" (click)="toggleMenu()"></i>
       </div>
     </div>
 
+    <div class="header-nav gap-4 align-items-center justify-content-center">
+      <p class="text-light m-0 cursor-pointer nav-link" routerLink="/tweets">Tweets</p>
+      <p class="text-light m-0 cursor-pointer nav-link" routerLink="/overview">Herramientas </p>
+      <p class="text-light m-0 cursor-pointer nav-link" routerLink="/airdrops">Airdrops</p>
+    </div>
 
-</section>
+    <div class="header-search caja-buscador flex-row gap-2 align-items-center flex-nowrap mx-3">
+      <i class="bi bi-search" style="color: #7d7f84"></i>
+      <input type="text" id="mini-buscador" placeholder="Search for tokens,layouts....">
+    </div>
+
+    @if (isLoggedIn()) {
+      <div class="header-actions d-flex gap-3 align-items-center justify-content-end">
+        <button type="button" class="btn btn-sm d-flex flex-row flex-nowrap align-items-center gap-2">
+          <i class="bi bi-person-square fs-5 text-light"></i>
+          <span class="text-light">{{ nombreDeUsuario() }}</span>
+        </button>
+      </div>
+    } @else {
+      <div class="header-actions d-flex gap-3 align-items-center justify-content-end">
+        <button type="button" id="registro" class="btn text-light border-0" (click)="toggleLogin()">
+          Iniciar sesión
+        </button>
+        <button type="button" routerLink="/register" class="btn btn-light text-black fw-bold">
+          Regístrate
+        </button>
+      </div>
+    }
+
+  </div>
+</div>
+
+
 
 @if (openLogin()) {
   <app-login (fnToggleLoginHeader)="toggleLogin()"></app-login>
+}
+@if(openMenu()){
+  <app-menu (fnToggleMenu)="toggleMenu()"></app-menu>
 }

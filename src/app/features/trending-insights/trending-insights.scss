@@ -1,5 +1,136 @@
 .fondo{
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 999;
+}
+
+.cabezera {
   background-color: #03050D;
-  width: 100vw;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 10px 24px;
+  border-bottom: 1px solid #13161f;
+}
+
+.caja-buscador {
+  padding: 8px 15px;
+  border: 1px solid #24272f;
+  background-color: #131721;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  color: #ebebeb;
+  width: 100%;
+  outline: none;
+}
+
+input::placeholder {
+  color: #7e8085;
+}
+
+.atajo {
+  color: #7e8085;
+  font-size: 12px;
+  border: 1px solid #24272f;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+img {
+  min-width: 50px;
+  max-width: 45px;
+}
+.cuerpo{
+  .caja-buscador{
+    min-width: 200px;
+    width: 79.5%;
+    color: #14161f;
+  }
+}
+
+//////////////////////////////////////////estilos de tweets
+.lista-tweets{
+  overflow-y: auto;
+  max-height: 572px;
+  max-width: 1000px;
+  width: 100%;
+}
+.insight-card {
+  background-color: #14161f;
+  border: 1px solid #23252c;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+
+.insight-titulo {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family: monospace;
+}
+
+.insight-token {
+  color: #7e8186;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.label-token {
+  color: #7e8186;
+}
+
+.insight-meta {//tiempo
+  color: #7e8186;
+  font-size: 12px;
+}
+.contenedor-etiquetas{
+  span{
+    font-size: 12px;
+    color: #55A66C;
+    background-color: #1f302c;
+    padding: 1px 4px 1px 4px ;
+    border-radius: 3px;
+    font-family: monospace;
+
+  }
+  .blanco{
+    color: white;
+    background-color: #22242c;
+  }
+}
+.lapiz{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+}
+.btn-lapiz {
+  background-color: #a493b5;
+  border: 1px solid #23252c;
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+margin-bottom: 150px;
+
+
+}
+
+
+.btn-lapiz:hover {
+  background-color: #24272f;
+  border-color: #3a3d4a;
 }

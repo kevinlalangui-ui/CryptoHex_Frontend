@@ -86,13 +86,24 @@ input:focus{
 }
 
 
-
-
 input:focus {
   background-color: rgba(3, 5, 13, 0.01);
   color: #b3b3b7;
   border:none;
 }
+.caja.salir{
+  position: relative;
+
+}
+.salir{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+::placeholder{
+  color: rgba(175, 176, 178, 0.42);
+}
+
 
 
 
