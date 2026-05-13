@@ -14,7 +14,11 @@ export class TweetsService {
   enviarTweet(datos:any):Observable<any>{
     return this.http.post<any>(`${this.URL}/custom-tweet/`, datos)
   }
-  getTweets():Observable<any[]>{
+  getTweets():Observable<any[]>{//4 primeros
     return this.http.get<any>(`${this.URL}/tweets/`)//get/api/tweets
   }
+  getUserTweets():Observable<any[]>{
+  return this.http.get<any>(`${this.URL}/user-tweets/`)
+  }
+
 }

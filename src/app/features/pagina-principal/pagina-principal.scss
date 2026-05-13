@@ -77,25 +77,23 @@ img{
 
 
 .contenedor-etiquetas{
-  .verde{
+  span{
     font-size: 12px;
-    color:#55A66C;
-    background-color: #1f302c;
-    padding: 1px 4px 1px 4px;
-    border-radius: 3px;
-    font-family: monospace;
-  }
-  .rojo{
-    font-size: 12px;
-    color: #C24741;
-    background-color: #3c2a33;
-    padding: 1px 4px 1px 4px;
+    padding: 1px 4px 1px 4px ;
     border-radius: 3px;
     font-family: monospace;
   }
   .blanco{
-    color:white;
+    color: white;
     background-color: #22242c;
+  }
+  .verde{
+    color:#55A66C;
+    background-color: #1f302c;
+  }
+  .rojo{
+    color: #C24741;
+    background-color: #3c2a33;
   }
 }
 

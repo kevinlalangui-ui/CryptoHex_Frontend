@@ -1,6 +1,5 @@
 import { Component,output } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgClass} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../../../core/services/usuarios/auth.service';
 import {AuthCookieService} from '../../../../core/services/cookies/auth-cookie.service';

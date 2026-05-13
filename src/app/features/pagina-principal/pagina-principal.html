@@ -19,7 +19,8 @@
 
     <div class="text-center pt-3 mt-5"><h4 class="text-light fw-bold">Trending Insights</h4></div>
     <div class="lista-tweets w-90 d-flex gap-3 justify-content-center ">
-      @for (tweet of tweets(); track tweet.id){
+      @for (tweet of tweets(); track tweet.id ){
+        @if($index <5){
         <div class="contenedor-tweet">
           <div class="contenedor-etiquetas d-flex gap-2">
             @if(tweet.tag1){
@@ -38,6 +39,7 @@
             <span class="tweet-tiempo">{{tweet.fecha_creacion | date:'short'}}</span>
           </div>
         </div>
+      }
       }
 
     </div>

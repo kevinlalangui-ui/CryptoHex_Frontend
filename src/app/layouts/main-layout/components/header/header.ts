@@ -4,13 +4,15 @@ import {Login} from '../login/login';
 import {Menu} from '../menu/menu';
 import{AuthCookieService} from '../../../../core/services/cookies/auth-cookie.service';
 import{SessionStorageService} from '../../../../core/services/sessions/session-storage.service';
+import{Profile} from '../../../../features/profile/profile';
 
 @Component({
   selector: 'app-header',
   imports: [
     RouterLink,
     Login,
-    Menu
+    Menu,
+    Profile,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -22,6 +24,7 @@ export class Header {
 
   openLogin= signal<boolean>(false);
   openMenu= signal<boolean>(false);
+  openProfile = signal<boolean>(false);
   constructor(private cookieService: AuthCookieService ,
               private sessionService :SessionStorageService) {
     this.ponerDatos(cookieService, sessionService);
@@ -30,13 +33,15 @@ export class Header {
     toggleLogin(){
       this.openLogin.update(state=>!state);
       //recomprobamos
-
       this.ponerDatos(this.cookieService, this.sessionService);
     }
 
 
     toggleMenu(){
       this.openMenu.update(state=>!state);
+    }
+    toggleProfile(){
+    this.openProfile.update(state=>!state);
     }
   private ponerDatos(cookieService: AuthCookieService, sessionService: SessionStorageService) {
     if (cookieService.get('cryptoHex_online_token')) {
@@ -45,6 +50,7 @@ export class Header {
       if (datos) {
         this.nombreDeUsuario.set(datos.nombre);
       }
+
     }
   }
 }

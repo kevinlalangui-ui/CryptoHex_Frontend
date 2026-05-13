@@ -22,56 +22,30 @@
     </div>
     <div  class="lapiz">
       <div class="lista-tweets d-flex flex-column gap-3">
+        @for(tweet of tweets(); track tweet.id){
+          <div class="contenedor-tweet">
+            <div class="contenedor-etiquetas d-flex gap-2 ">
+              @if (tweet.tag1){
+                <span [ngClass]="getEstilo(tweet.tag1)">{{tweet.tag1}}</span>
+              }
+              @if (tweet.tag2){
+                <span [ngClass]="getEstilo(tweet.tag2)">{{tweet.tag2}}</span>
+              }
+              @if (tweet.tag3){
+                <span [ngClass]="getEstilo(tweet.tag3)">{{tweet.tag3}}</span>
+              }
+            </div>
 
-        <div class="insight-card">
-          <p class="insight-titulo">LINK Sees 4x Volume Spike on Binance, Bybit Funding Rate Plunges Negative</p>
-          <p class="insight-token"><span class="label-token">Tokens:</span> LINK</p>
-          <div class="insight-footer">
-            <span class="insight-meta">8 minutes ago</span>
+            <p class="tweet-titulo mt-2">{{tweet.contenido}}</p>
+            <p class="letra-token"><span class="etiqueta-token">Tokens: {{tweet.token}}</span> </p>
+            <div class="">
+              <span class="tweet-tiempo">{{tweet.fecha_creacion | date:'short'}}</span>
+            </div>
           </div>
-        </div>
+        } @empty {
+          <p class="text-secondary">Aún no has públicado ningún tweet </p>
+        }
 
-        <div class="insight-card">
-          <p class="insight-titulo">ETH Long-Dated Futures Discounted, Options Mixed as Derivatives Signal Caution</p>
-          <p class="insight-token"><span class="label-token">Tokens:</span> ETH</p>
-          <div class="insight-footer">
-            <span class="insight-meta">10 minutes ago</span>
-          </div>
-        </div>
-
-        <div class="insight-card">
-          <div class="contenedor-etiquetas d-flex gap-2 ">
-            <span class="">Bullish</span>
-            <span class="blanco">Sentiment</span>
-          </div>
-
-          <p class="insight-titulo mt-2">ONDO Trading Volume Surges 667% on Binance, Positive Sentiment Spikes</p>
-          <p class="insight-token"><span class="label-token">Tokens:</span> ONDO</p>
-          <div class="insight-footer">
-            <span class="insight-meta">50 minutes ago</span>
-          </div>
-        </div>
-
-        <div class="insight-card">
-          <div class="contenedor-etiquetas d-flex gap-2">
-            <span class="">Bullish</span>
-          </div>
-          <p class="insight-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
-          <p class="insight-token"><span class="label-token">Tokens:</span> ALGO</p>
-          <div class="insight-footer">
-            <span class="insight-meta">1 hour ago</span>
-          </div>
-        </div>
-        <div class="insight-card">
-          <div class="contenedor-etiquetas d-flex gap-2">
-            <span class="">Bullish</span>
-          </div>
-          <p class="insight-titulo mt-2">ALGO: Binance Volume Surges, Deribit Funding Rate Turns Sharply Positive</p>
-          <p class="insight-token"><span class="label-token">Tokens:</span> ALGO</p>
-          <div class="insight-footer">
-            <span class="insight-meta">1 hour ago</span>
-          </div>
-        </div>
       </div>
       <div>
         <button class="btn-lapiz text-light " (click)="toggleTweet()">

@@ -25,7 +25,7 @@ export class AddTweet {
       "tag1":['',[Validators.maxLength(10)]],
       "tag2":['',[Validators.maxLength(10)]],
       "tag3":['',[Validators.maxLength(10)]],
-      "contenido":['',[Validators.required],Validators.minLength(10),Validators.maxLength(180)],
+      "contenido":['',[Validators.required,Validators.minLength(10),Validators.maxLength(180)]],
     })
   }
   enviarTweet() {

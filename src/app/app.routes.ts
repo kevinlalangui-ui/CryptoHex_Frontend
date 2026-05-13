@@ -23,10 +23,6 @@ export const routes: Routes = [
     ]
   },
   {
-    path:'custom-tweet',
-    loadComponent:()=>import("./features/custom-tweet/custom-tweet").then(c=>c.CustomTweet),
-  },
-  {
     path:'overview',
     loadComponent:()=>import("./layouts/graficos-layout/graficos").then(c=>c.Graficos) ,
   },

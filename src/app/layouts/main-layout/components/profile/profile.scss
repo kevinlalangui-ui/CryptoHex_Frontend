@@ -17,7 +17,6 @@ section{//re
     grid-template-columns: 1fr 1fr;
     background-color: #0f1118;
     padding-right: 20px;
-    min-width: 250px;
 
   }
 }
@@ -28,7 +27,7 @@ section{//re
   align-items: center;
   gap: 10px;
 
-  }
+}
 .icono-perfil{
   font-size: 5rem;
 }
@@ -86,21 +85,15 @@ section{//re
 .contenedor-etiquetas{
   span{
     font-size: 12px;
-    padding: 1px 4px 1px 4px ;
+    color:#55A66C;
+    background-color: #1f302c;
+    padding: 1px 4px 1px 4px;
     border-radius: 3px;
     font-family: monospace;
   }
   .blanco{
-    color: white;
+    color:white;
     background-color: #22242c;
-  }
-  .verde{
-    color:#55A66C;
-    background-color: #1f302c;
-  }
-  .rojo{
-    color: #C24741;
-    background-color: #3c2a33;
   }
 }
 .caja-salir{
