@@ -5,37 +5,67 @@
         <i class="bi bi-x-lg text-white"></i>
       </button>
     </div>
-    <form [formGroup]="formTweet"
-          (ngSubmit)="enviarTweet()">
-      <div class="caja">
-        <div class="d-flex align-items-start gap-1">
-          <input formControlName="tag1" type="text" placeholder="etiqueta 1">
-          <input formControlName="tag2" type="text" placeholder="etiqueta 2 ">
-          <input formControlName="tag3" type="text" placeholder="etiqueta 3">
-        </div>
-        <div>
-        <textarea formControlName="contenido">
-        </textarea>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="d-flex gap-1 align-items-center">
-            <span class="gris">Token:</span>
-            <select formControlName="token" id="token">
-              <option value="btc">BTC</option>
-              <option value="aster">ASTR</option>
-              <option value="eth">ETH</option>
-              <option value="sol">SOL</option>
-            </select>
+    <div class="contenedor-tweet">
+      <form [formGroup]="formTweet"
+            (ngSubmit)="enviarTweet()">
+        <span class="text-white">Escribe tu Tweet....</span>
+          <p class="contenido mt-1">
+            <textarea formControlName="contenido" placeholder=" Analiza la tendencia o comparte tu visión...."></textarea>
+            @if (formTweet.get('contenido')?.touched) {
+              @if (formTweet.get('contenido')?.errors?.['required']) {
+                <div class="form-text text-danger">El campo es obligatorio</div>
+              }
+              @if (formTweet.get('contenido')?.errors?.['minlength']) {
+                <div class="form-text text-danger">Longitud mínima de 10 caracteres</div>
+              }
+            }
+          </p>
+        <div class="contenedor-etiquetas d-flex gap-2">
+          <span class=" text-white">Tags: </span>
+          <div class="d-flex align-items-center gap-2 ">
+            <div>
+              <input formControlName="tag1" class="contenedorcito" type="text" placeholder="Tag 1">
+            </div>
+            <div>
+              <input formControlName="tag2" class="contenedorcito" type="text" placeholder="Tag 2 ">
+            </div>
+            <div>
+              <input formControlName="tag3" class="contenedorcito" type="text" placeholder="Tag 3">
+            </div>
           </div>
-          <div class="">
-            <span class="gris">hours ago</span>
-          </div>
+        </div >
+        <div class="desplegable">
+          <span>Token: </span>
+          <select formControlName="token" id="token">
+            <option value="btc">BTC</option>
+            <option value="aster">ASTR</option>
+            <option value="eth">ETH</option>
+            <option value="sol">SOL</option>
+            <option value="xrp">XRP</option>
+          </select>
         </div>
-      </div>
-      <div class="d-flex align-items-center justify-content-center">
-        <button type="submit" class="w-100" [disabled]="formTweet.invalid" >Publicar</button>
-      </div>
-    </form>
+        <div class="d-flex align-items-center justify-content-center">
+          <button type="submit" class="boton btn" [disabled]="formTweet.invalid" >Publicar</button>
+        </div>
+      </form>
+    </div>
+
+
 
   </div>
-</div>
+
+  </div>
+  <div>
+
+  </div>
+
+<!--        <div class="d-flex justify-content-between">-->
+<!--          <div class="d-flex gap-1 align-items-center">-->
+<!--            <span class="gris">Token:</span>-->
+<!--            <select formControlName="token" id="token">-->
+<!--              <option value="btc">BTC</option>-->
+<!--              <option value="aster">ASTR</option>-->
+<!--              <option value="eth">ETH</option>-->
+<!--              <option value="sol">SOL</option>-->
+<!--            </select>-->
+<!--          </div>-->

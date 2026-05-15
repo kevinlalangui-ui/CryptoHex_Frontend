@@ -96,4 +96,37 @@ img{
     background-color: #3c2a33;
   }
 }
+// Skeleton loader
+.skeleton { pointer-events: none; }
 
+.skeleton-tag {
+  width: 60px; height: 18px;
+  background: linear-gradient(90deg, #1c1f2b 25%, #23262f 50%, #1c1f2b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 3px;
+}
+.skeleton-line {
+  height: 12px;
+  background: linear-gradient(90deg, #1c1f2b 25%, #23262f 50%, #1c1f2b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 3px;
+  &.largo { width: 100%; }
+  &.corto { width: 60%; }
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// Card clickable sin subrayado
+a.contenedor-tweet {
+  text-decoration: none;
+  display: block;
+  &:hover {
+    border-color: #3a3d4a;
+    background-color: #1a1d2a;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+}

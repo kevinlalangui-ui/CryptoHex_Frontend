@@ -2,48 +2,72 @@
   <div class="content pt-5 ps-4">
     <div class="mb-5"><h3 class="text-light fw-bold">CRYPTOHEX</h3></div>
 
-    <div id="barra-busqueda" class=" d-flex  align-items-center px-2 py-3 gap-2">
+    <div id="barra-busqueda" class="d-flex align-items-center px-2 py-3 gap-2">
       <div class="ps-1">
         <i class="bi bi-search text-white"></i>
       </div>
       <div class="container">
-        <input class="" type="text" placeholder="Search for tokens, addresses, entities ...">
+        <input type="text" placeholder="Search for tokens, addresses, entities ...">
       </div>
-
-      <div class="right-icons d-flex gap-1 align-items-center  pe-3">
+      <div class="right-icons d-flex gap-1 align-items-center pe-3">
         <i class="bi bi-chevron-down text-white"></i>
         <i class="bi bi-link-45deg text-white"></i>
         <span class="text-white text-nowrap">| ALL NETWORKS</span>
       </div>
     </div>
 
-    <div class="text-center pt-3 mt-5"><h4 class="text-light fw-bold">Trending Insights</h4></div>
-    <div class="lista-tweets w-90 d-flex gap-3 justify-content-center ">
-      @for (tweet of tweets(); track tweet.id ){
-        @if($index <5){
-        <div class="contenedor-tweet">
-          <div class="contenedor-etiquetas d-flex gap-2">
-            @if(tweet.tag1){
-              <span [ngClass]="getEstilo(tweet.tag1)">{{tweet.tag1 }}</span>
-            }
-            @if(tweet.tag2){
-              <span [ngClass]="getEstilo(tweet.tag2)">{{tweet.tag2 }}</span>
-            }
-            @if(tweet.tag3){
-              <span [ngClass]="getEstilo(tweet.tag3)">{{tweet.tag3 }}</span>
-            }
-          </div>
-          <p class="tweet-titulo mt-2">{{tweet.contenido}}</p>
-          <p class="letra-token"><span class="etiqueta-token">Token: {{tweet.token}}</span></p>
-          <div>
-            <span class="tweet-tiempo">{{tweet.fecha_creacion | date:'short'}}</span>
-          </div>
-        </div>
-      }
-      }
-
+    <div class="text-center pt-3 mt-5">
+      <h4 class="text-light fw-bold">Trending Insights</h4>
     </div>
 
-  </div>
+    <!-- Estado de carga con skeleton -->
+    @if (cargando()) {
+      <div class="lista-tweets d-flex gap-3 justify-content-center">
+        @for (i of [1,2,3,4,5]; track i) {
+          <div class="contenedor-tweet skeleton">
+            <div class="skeleton-tag mb-2"></div>
+            <div class="skeleton-line largo mb-2"></div>
+            <div class="skeleton-line corto mb-3"></div>
+            <div class="skeleton-line corto"></div>
+          </div>
+        }
+      </div>
+    }
 
+    <!-- Error -->
+    @if (error()) {
+      <div class="text-center mt-5">
+        <p class="text-secondary">{{ error() }}</p>
+      </div>
+    }
+
+    <!-- Noticias -->
+    @if (!cargando() && !error()) {
+      <div class="lista-tweets d-flex gap-3 justify-content-center">
+        @for (noticia of noticias(); track noticia.id) {
+          <a class="contenedor-tweet" [href]="noticia.url" target="_blank" rel="noopener noreferrer">
+            <div class="contenedor-etiquetas d-flex gap-2 mb-1">
+
+              @if (noticia.sentimiento !== null) {
+                <span [ngClass]="getSentimientoClass(noticia.sentimiento)">
+                  {{ getSentimientoTexto(noticia.sentimiento) }}
+                </span>
+              }
+              @for (moneda of noticia.monedas.slice(0, 2); track moneda) {
+                <span class="blanco">{{ moneda }}</span>
+              }
+            </div>
+            <p class="tweet-titulo mt-2">{{ noticia.titulo }}</p>
+            <p class="letra-token">
+              <span class="etiqueta-token">{{ noticia.fuente }}</span>
+            </p>
+            <div>
+              <span class="tweet-tiempo">{{ noticia.fecha | date:'short' }}</span>
+            </div>
+          </a>
+        }
+      </div>
+    }
+
+  </div>
 </div>

@@ -25,24 +25,29 @@ export class AddTweet {
       "tag1":['',[Validators.maxLength(10)]],
       "tag2":['',[Validators.maxLength(10)]],
       "tag3":['',[Validators.maxLength(10)]],
-      "contenido":['',[Validators.required,Validators.minLength(10),Validators.maxLength(180)]],
+      "contenido":['',[Validators.required,Validators.minLength(10),Validators.maxLength(250)]],
     })
   }
   enviarTweet() {
-    if(this.formTweet.invalid) {
-      alert("Formulario no válido")
+    if (this.formTweet.invalid) {
+      alert("Formulario no válido");
       return;
     }
-    this.authService.enviarTweet(this.formTweet.value).subscribe({
-      next: (data)=>{
+
+    const datos = { ...this.formTweet.value };
+    // Convertir tags vacíos a null para que no de error
+    ['tag1', 'tag2', 'tag3'].forEach(tag => {
+      if (datos[tag] === '') datos[tag] = null;
+    });
+
+    this.authService.enviarTweet(datos).subscribe({
+      next: (data) => {
         console.log(data);
         this.fnToggleTweet.emit();
       },
-      error: (err)=>{
-        console.log(err)
+      error: (err) => {
+        console.log(err);
       }
-
-
-    })
+    });
   }
 }

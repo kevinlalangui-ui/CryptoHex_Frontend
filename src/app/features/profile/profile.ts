@@ -60,6 +60,11 @@ export class Profile implements OnInit {
     if(tag.toLowerCase().includes('bearish')) return 'rojo';
     return 'blanco';
   }
+  borrarTweet(id: number){
+    this.tweetsService.borrarTweet(id).subscribe({
+      next: () => this.tweets.update(lista => lista.filter(t => t.id !== id)),
+    });
+  }
 
 
 }

@@ -1,16 +1,7 @@
-import {Component, OnInit, signal} from '@angular/core';
-import {DatePipe, NgClass} from '@angular/common';
-import {TweetsService} from '../../core/services/tweets/tweets.service';
-
-interface TweetInterface {//AQUI EL ERROR
-  id: number;
-  contenido: string;
-  token: string;
-  fecha_creacion: string;
-  tag1: string|null;
-  tag2: string|null;
-  tag3: string|null;
-}
+import { Component, OnInit, signal } from '@angular/core';
+import { DatePipe, NgClass } from '@angular/common';
+import { NewsService, Noticias} from '../../core/services/news/news.service.';
+//penre
 @Component({
   selector: 'app-pagina-principal',
   imports: [NgClass, DatePipe],
@@ -18,23 +9,31 @@ interface TweetInterface {//AQUI EL ERROR
   styleUrl: './pagina-principal.scss',
 })
 export class PaginaPrincipal implements OnInit {
-  tweets= signal<TweetInterface[]>([]);
-  constructor(private tweetsService: TweetsService) {
+  noticias = signal<Noticias[]>([]);
+  cargando = signal<boolean>(true);
+  error = signal<string | null>(null);
 
-  }
+  constructor(private newsService: NewsService) {}
+
   ngOnInit() {
-    this.tweetsService.getTweets().subscribe({
-      next: response => {
-        this.tweets.set(response);
+    this.newsService.getNoticias().subscribe({
+      next: (response) => {
+        this.noticias.set(response);
+        this.cargando.set(false);
       },
-      error: (err) => console.error('Error caragarndo los tweets:',err),
-    })
+      error: (err) => {
+        console.error('Error cargando noticias:', err);
+        this.error.set('No se pudieron cargar las noticias');
+        this.cargando.set(false);
+      },
+    });
   }
-  getEstilo(tag:string| null):string{
-    if(!tag) return '';
-    if (tag.toLowerCase() === 'bullish') return 'verde';
-    if(tag.toLowerCase() ==='bearish') return 'rojo';
-    return 'blanco';
 
+  getSentimientoClass(sentimiento: boolean): string {
+    return sentimiento ? 'verde' : 'rojo';
+  }
+
+  getSentimientoTexto(sentimiento: boolean): string {
+    return sentimiento ? 'Bullish' : 'Bearish';
   }
 }

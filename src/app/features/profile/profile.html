@@ -1,10 +1,6 @@
 <section>
     <div class="content">
-      <div class="caja-salir d-flex justify-content-end">
-        <button type="button" class="salir btn btn-danger close-btn" (click)="fnToggleProfile.emit()">
-          <i class="bi bi-x-lg text-white"></i>
-        </button>
-      </div>
+
 
       <div class="primera-columna justify-content-start">
         <i class="icono-perfil bi bi-person-circle text-white"></i>
@@ -24,16 +20,21 @@
         <div class="lista-tweets d-flex flex-column gap-3">
           @for(tweet of tweets(); track tweet.id){
             <div class="contenedor-tweet">
-              <div class="contenedor-etiquetas d-flex gap-2 ">
-                @if (tweet.tag1){
-                  <span [ngClass]="getEstilo(tweet.tag1)">{{tweet.tag1}}</span>
-                }
-                @if (tweet.tag2){
-                  <span [ngClass]="getEstilo(tweet.tag2)">{{tweet.tag2}}</span>
-                }
-                @if (tweet.tag3){
-                  <span [ngClass]="getEstilo(tweet.tag3)">{{tweet.tag3}}</span>
-                }
+              <div class="contenedor-etiquetas d-flex  justify-content-between gap-2 ">
+                <div>
+                  @if (tweet.tag1){
+                    <span [ngClass]="getEstilo(tweet.tag1)">{{tweet.tag1}}</span>
+                  }
+                  @if (tweet.tag2){
+                    <span [ngClass]="getEstilo(tweet.tag2)">{{tweet.tag2}}</span>
+                  }
+                  @if (tweet.tag3){
+                    <span [ngClass]="getEstilo(tweet.tag3)">{{tweet.tag3}}</span>
+                  }
+                </div>
+                <div class="papelera" (click)="borrarTweet(tweet.id)">
+                  <i class="bi bi-trash3 "></i>
+                </div>
               </div>
 
               <p class="tweet-titulo mt-2">{{tweet.contenido}}</p>

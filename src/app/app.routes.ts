@@ -25,16 +25,18 @@ export const routes: Routes = [
   {
     path:'overview',
     loadComponent:()=>import("./layouts/graficos-layout/graficos").then(c=>c.Graficos) ,
+    canActivate: [authGuard],// la guard
+
   },
   {
     path:'profile',
     loadComponent:()=>import("./features/profile/profile").then(c=>c.Profile),
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
   },
   {
     path:'tweets',
     loadComponent:()=>import("./features/trending-insights/trending-insights").then(c=>c.TrendingInsights) ,
-    // canActivate: [authGuard],// la guard
+    canActivate: [authGuard],// la guard
   },
   {path:'**',redirectTo:'page-not-found',pathMatch:'full'},
   {

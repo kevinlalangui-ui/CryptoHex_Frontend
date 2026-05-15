@@ -7,47 +7,91 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  //background-color: #1a1c23;
   z-index: 999;
   display:flex;
   justify-content: center;
   align-items: center;
 }
 .content{
-  background-color: #0f1118;
-  width: 100%;
+  background-color: #10131a;
   max-width: 700px;
+  min-width: 600px;
   padding: 20px 30px;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0px 0px 30px 5px rgba(0, 119, 255, 0.25);
 }
-.caja{
-  background-color: #1d212b;
-  width: 100%;
-  border-radius: 6px;
-  padding:2px 5px 3px 5px ;
-}
+
 .gris{
   color: #acacac;
   font-size: 12px;
 }
-select{
-  background-color: #1d212b;
-  color: #acacac;
-  outline: none;
-  border: none  ;
-  font-size: 12px;
-}
+
 input{
   background-color: #2a2e37;
   outline: none  ;
-  border: none  ;
+  border: solid 1px #3f414c;
   color: #d9dade;
-  font-size: 10px;
-  width: 54px;
+  font-size: 12px;
+  width: 100%;
+  font-family: monospace;
 }
 textarea{
   width: 100%;
-  font-size: 12px;
-  background-color:#1d212b ;
+  min-height: 100px;
+  font-size: 14px;
+  background-color: #141720;
   color:#d2d3d5;
-  border: none  ;
+  border: solid 1px #2c333e;
+  border-radius: 5px;
+  font-family: monospace;
+
 }
+.contenedor-etiquetas {
+  span {
+    font-size: 14px;
+    padding: 1px 4px 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    margin: 8px 0;
+  }
+
+  .blanco {
+    color: white;
+    background-color: #22242c;
+  }
+  .contenedorcito{
+    width: 100%;
+    background-color: #262a34;
+    border: solid 1px #3c404d;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+}
+.desplegable{
+  margin-bottom: 5px;
+  span{
+    font-family: monospace;
+    color: white;
+    font-size: 14px;
+  }
+  select{
+    color: #acacac;
+    outline: none;
+    font-size: 14px;
+    font-family: monospace;
+    background-color: #262a34;
+    border: solid 1px #3c404d;
+    border-radius: 5px;
+
+  }
+
+}
+.boton{
+  background-color: #197cc9;
+  color: white;
+  border: none;
+  width: 20%;
+}
+

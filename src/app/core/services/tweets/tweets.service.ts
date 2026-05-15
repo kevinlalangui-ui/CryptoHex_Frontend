@@ -20,5 +20,8 @@ export class TweetsService {
   getUserTweets():Observable<any[]>{
   return this.http.get<any>(`${this.URL}/user-tweets/`)
   }
+  borrarTweet(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.URL}/tweets/${id}`)
+  }
 
 }

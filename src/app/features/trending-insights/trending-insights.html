@@ -6,25 +6,34 @@
 
     <div class="header-search caja-buscador d-flex flex-row gap-2 align-items-center flex-nowrap">
       <i class="bi bi-search" style="color: #7d7f84"></i>
-      <input type="text" id="mini-buscador" placeholder="Search for tokens, layouts....">
+      <input type="text" id="buscador-header" placeholder="Search for tweets..."
+             [value]="busqueda()"
+             (input)="busqueda.set($any($event.target).value)"
+      >
       <span class="atajo">/</span>
     </div>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end" (click)="toggleMenu()">
       <i class="bi bi-list text-white fs-4"></i>
     </div>
   </div>
+
   <div class="cuerpo container d-flex flex-column gap-3 bg-black pt-5 ps-5">
     <h2 class="fw-bold text-white">TWEETS</h2>
-    <div class="caja-buscador d-flex flex-row gap-2 align-items-center flex-nowrap ">
+
+    <div class="caja-buscador d-flex flex-row gap-2 align-items-center flex-nowrap">
       <i class="bi bi-search" style="color: #7d7f84"></i>
-      <input type="text" id="mini-buscador" placeholder="Search for tokens, layouts....">
+      <input type="text" id="buscador-cuerpo"
+             placeholder="Search for tags,tweets...."
+             [value]="busqueda()"
+             (input)="busqueda.set($any($event.target).value)">
     </div>
-    <div  class="lapiz">
+
+    <div class="lapiz">
       <div class="lista-tweets d-flex flex-column gap-3">
-        @for(tweet of tweets(); track tweet.id){
+        @for(tweet of tweetsFiltrados(); track tweet.id){
           <div class="contenedor-tweet">
-            <div class="contenedor-etiquetas d-flex gap-2 ">
+            <div class="contenedor-etiquetas d-flex gap-2">
               @if (tweet.tag1){
                 <span [ngClass]="getEstilo(tweet.tag1)">{{tweet.tag1}}</span>
               }
@@ -35,29 +44,30 @@
                 <span [ngClass]="getEstilo(tweet.tag3)">{{tweet.tag3}}</span>
               }
             </div>
-
             <p class="tweet-titulo mt-2">{{tweet.contenido}}</p>
-            <p class="letra-token"><span class="etiqueta-token">Tokens: {{tweet.token}}</span> </p>
-            <div class="">
+            <p class="letra-token"><span class="etiqueta-token">Tokens: {{tweet.token}}</span></p>
+            <div>
               <span class="tweet-tiempo">{{tweet.fecha_creacion | date:'short'}}</span>
             </div>
           </div>
         } @empty {
-          <p class="text-secondary">Aún no has públicado ningún tweet </p>
+          <p class="text-secondary">Aún no has publicado ningún tweet</p>
         }
-
       </div>
+
       <div>
-        <button class="btn-lapiz text-light " (click)="toggleTweet()">
+        <button class="btn-lapiz text-light" (click)="toggleTweet()">
           <i class="bi bi-pencil-square"></i>
         </button>
       </div>
     </div>
   </div>
-
-
 </div>
 
+@if(openMenu()){
+  <app-menu (fnToggleMenu)="toggleMenu()"></app-menu>
+}
+
 @if(openTweet()){
-  <app-add-tweet (fnToggleTweet)="toggleTweet()"></app-add-tweet>
+  <app-add-tweet (fnToggleTweet)="onTweetAnadido()"></app-add-tweet>
 }
