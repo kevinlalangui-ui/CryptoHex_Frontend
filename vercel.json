@@ -1,4 +1,4 @@
 {
-  "outputDirectory": "dist/cryptoHex_v1",
+  "outputDirectory": "dist/cryptoHex_v1/browser",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
