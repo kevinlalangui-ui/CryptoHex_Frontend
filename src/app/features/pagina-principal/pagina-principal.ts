@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { DatePipe, NgClass } from '@angular/common';
-import { NewsService, Noticias} from '../../core/services/news/news.service.';
+import { NewsService, Noticias} from '../../core/services/news/news.service';
 //penre
 @Component({
   selector: 'app-pagina-principal',
