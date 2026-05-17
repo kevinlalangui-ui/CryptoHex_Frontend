@@ -18,7 +18,9 @@
     <div class="header-nav gap-4 align-items-center justify-content-center">
       <p class="text-light m-0 cursor-pointer nav-link" routerLink="/tweets">Tweets</p>
       <p class="text-light m-0 cursor-pointer nav-link" routerLink="/overview">Herramientas </p>
-      <p class="text-light m-0 cursor-pointer nav-link" routerLink="/profile">Perfil</p>
+      @if(isLoggedIn()){
+        <p class="text-light m-0 cursor-pointer nav-link" routerLink="/profile">Perfil</p>
+      }
     </div>
 
     <div class="header-search caja-buscador flex-row gap-2 align-items-center flex-nowrap mx-3">
