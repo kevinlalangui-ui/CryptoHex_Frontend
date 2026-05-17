@@ -15,9 +15,15 @@
 <!--        <span class="text-white text-nowrap">| ALL NETWORKS</span>-->
 <!--      </div>-->
 <!--    </div>-->
+    @if (isLoggedIn()) {
       <div class="text-center justify-content-center align-items-center">
-        <h4>¡Bienvenido! </h4>
+        <h4 class="text-white">¡Bienvenido ,{{ nombreDeUsuario() }}!</h4>
       </div>
+    } @else {
+      <div class="text-center justify-content-center align-items-center">
+        <h4 class="text-white">¡Bienvenido , para usar todas las funcionalidades debes iniciar sesión!</h4>
+      </div>
+    }
 
     <div class="text-center pt-3 mt-5">
       <h4 class="text-light fw-bold">Trending Insights</h4>
