@@ -26,6 +26,8 @@ export class Login {
     private authService: AuthService,
     private authCookieService: AuthCookieService,
     private sessionStorageService: SessionStorageService,
+    private router: Router,
+
   ) {
     this.formLogin = this.formBuilder.group({
       "email": ['', [Validators.email, Validators.required,Validators.minLength(5)]],
@@ -58,6 +60,9 @@ export class Login {
         }
         this.sessionStorageService.set("cryptoHex_datos", datos);
         this.fnToggleLoginHeader.emit()
+        this.router.navigate(['/']);
+
+
       },
       error: (error) => {
         console.log(error);
