@@ -21,11 +21,12 @@ export class PaginaPrincipal implements OnInit {
   constructor(private newsService: NewsService,
               private cookieService: AuthCookieService ,
               private sessionService :SessionStorageService) {
-    this.ponerDatos(cookieService, sessionService);
 
   }
 
   ngOnInit() {
+    this.ponerDatos(this.cookieService, this.sessionService);
+
     this.newsService.getNoticias().subscribe({
       next: (response) => {
         this.noticias.set(response);
