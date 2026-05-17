@@ -5,7 +5,6 @@ import {Menu} from '../menu/menu';
 import{AuthCookieService} from '../../../../core/services/cookies/auth-cookie.service';
 import{SessionStorageService} from '../../../../core/services/sessions/session-storage.service';
 import{Profile} from '../../../../features/profile/profile';
-
 @Component({
   selector: 'app-header',
   imports: [
@@ -22,12 +21,13 @@ export class Header {
   isLoggedIn = signal<boolean>(false);
   nombreDeUsuario = signal<string | null>(null);
 
-  openLogin= signal<boolean>(true);
+  openLogin= signal<boolean>(false);
   openMenu= signal<boolean>(false);
   openProfile = signal<boolean>(false);
   constructor(private cookieService: AuthCookieService ,
               private sessionService :SessionStorageService) {
     this.ponerDatos(cookieService, sessionService);
+    this.openLogin.set(!cookieService.get('cryptoHex_online_token'));
   }
 
     toggleLogin(){

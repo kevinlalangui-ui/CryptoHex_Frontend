@@ -55,6 +55,6 @@
 @if(openMenu()){
   <app-menu (fnToggleMenu)="toggleMenu()"></app-menu>
 }
-@if(openProfile()){
+@if(openProfile() && !isLoggedIn()){
   <app-profile (fnToggleProfile)="toggleProfile()"></app-profile>
 }
