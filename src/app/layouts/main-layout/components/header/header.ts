@@ -22,7 +22,7 @@ export class Header {
   isLoggedIn = signal<boolean>(false);
   nombreDeUsuario = signal<string | null>(null);
 
-  openLogin= signal<boolean>(false);
+  openLogin= signal<boolean>(true);
   openMenu= signal<boolean>(false);
   openProfile = signal<boolean>(false);
   constructor(private cookieService: AuthCookieService ,
